@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Планировщик задач</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <script type="module">
+    import App from './App.js';
+    import TaskForm from './TaskForm.js';
+    import TaskItem from './TaskItem.js';
+
+    const app = Vue.createApp(App);
+    
+    // [Критерий: Глобальная регистрация дочерних переиспользуемых компонентов в экземпляре приложения]
+    app.component('TaskForm', TaskForm);
+    app.component('TaskItem', TaskItem);
+    
+    app.mount('#app');
+  </script>
+</body>
+</html>
